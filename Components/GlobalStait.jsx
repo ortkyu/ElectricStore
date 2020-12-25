@@ -19,7 +19,7 @@ const reducer = (state, action) => {
 
         case PRODUCT_BY_ID: return {...state, products: state.products.filter(product => product.id == action.id)}
 
-        case SORT_BY_PRICE: return {...state, products: state.products.sort(( a, b ) => a.price - b.price)}
+        case SORT_BY_PRICE: return {...state, products: state.products.sort(( a, b ) => b.price - a.price)}
 
         default: return state
     }

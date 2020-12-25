@@ -1,0 +1,20 @@
+.layout {
+    font-weight: bold;
+    height: 90px;
+    left: 0;
+    top: 0;
+    right: 0;
+    background:rgb(0, 217, 255);
+    display: flex;
+    align-items: center;
+    padding-left: 5rem;
+  }
+
+.layout a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .layout main {
+    padding: 1rem;
+  }

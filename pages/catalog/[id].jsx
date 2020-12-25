@@ -4,6 +4,7 @@ import Head from 'next/head'
 import ProductCard from "../../Components/ProductCard"
 import Router from 'next/dist/next-server/server/router'
 import {useProducts} from "../../Components/GlobalStait"
+import MainLayout from "../../Components/Layout"
 
 
 
@@ -32,6 +33,7 @@ debugger
 
 
   return (
+    <MainLayout>
 <div>
 <Head>
                 <title>
@@ -42,5 +44,6 @@ debugger
     <ProductCard product={products[0]}/>
     </div>
     </div>
+    </MainLayout>
   )
 }
