@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import {GlobalProvider} from "../Components/GlobalStait"
+import {GlobalProvider} from "../store/GlobalStait"
 
 
 

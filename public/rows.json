@@ -5,28 +5,31 @@
          "vendor": "ABB",
          "pack": 100,
 		 "price": 1500,
-		 "image": "https://8.allegroimg.com/original/014380/0d930ef841a2aab79a029288a708"
+		 "image": "https://im0-tub-ru.yandex.net/i?id=1676f5fbc5730d916edf0363ad495f47&n=13"
 	},
 {
         "id": "00002",
 		"title": "Автоматический выключатель 20A",
         "vendor": "ABB",
         "pack": 100,
-		"price": 1500
+		"price": 1500,
+		"image": "https://i.ebayimg.com/00/s/MTIwMFgxNjAw/z/hhYAAOSwUQ5bx1aJ/$_57.JPG?set_id=8800005007"
 	},
 {
        "id": "00003",
 		"title": "Корпус металлический",
         "vendor": "ABB",
         "pack": 1,
-		"price": 6800
+		"price": 6800,
+		"image": "https://stroymarket.me/image/cache/data/shity/abbu62e-228x228.png"
 	},
 {
         "id": "00004",
 		"title": "Корпус пластиковый",
         "vendor": "IEK",
         "pack": 1,
-		"price": 1200
+		"price": 1200,
+		"image": "https://megalit-electro.ru/upload/iblock/82d/82d8dffce0ce7ae4b511b61b002fc734.jpg"
 	},
 {
         "id": "00005",
@@ -41,34 +44,39 @@
 		"title": "DLP Кабель-канал 105x50",
         "vendor": "DKC",
         "pack": 1,
-		"price": 350
+		"price": 350,
+		"image": "https://electro-dom.ru/wp-content/uploads/2018/08/Kabel-kanal-8035-Legrand.jpeg"
 	},
 {
         "id": "00007",
 		"title": "DLP Кабель-канал 80x50",
         "vendor": "DKC",
         "pack": 1,
-		"price": 300
+		"price": 300,
+		"image": "https://kolmen.ru/image/cache/catalog/i/ch/al/ede1a71c16c2886b11d873691acdb679-500x500.jpg"
 	},
 {
         "id": "00008",
 		"title": "ЭТЮД Выключатель одноклавишный",
         "vendor": "Schneider Electric",
         "pack": 1,
-		"price": 85
+		"price": 85,
+		"image": "https://baltiya-tk.ru/upload/iblock/de9/de9505d80a10252d441fbcdc80f483ac.jpg"
 	},
 {
         "id": "00009",
 		"title": "Контактор E 12А катушка управления 220В",
         "vendor": "Schneider Electric",
         "pack": 1,
-		"price": 3800
+		"price": 3800,
+		"image": "https://svetelektro.net/images/stories/virtuemart/product/lc1e95m57.jpg"
 	},
 {
         "id": "00010",
 		"title": "Лоток для систем освещения",
         "vendor": "Schneider Electric",
         "pack": 1,
-		"price": 1859
+		"price": 1859,
+		"image": "https://images.ru.prom.st/153488306_w200_h200_provolochnyj-lotok-200h60h3000.jpg"
 	}
 ]
