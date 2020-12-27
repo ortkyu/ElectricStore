@@ -3,21 +3,15 @@ import ProductList from "../Components/ProductList";
 import { useProducts } from "../store/GlobalStait";
 import MainLayout from "../Components/Layout";
 import s from "../styles/main.module.css";
+import { useEffect } from "react";
 
 export default function Home({ data }) {
   const { products, addProducts, sortProductByPrice } = useProducts();
 
-  async function loadProducts() {
-    const res = await fetch("http://localhost:3000/rows.json");
-    const data = await res.json();
+  useEffect(() => {
     addProducts(data);
-  }
+  }, []);
 
-  if (products.length < 2 && data) {
-    addProducts(data);
-  } else if (products.length < 2 && !data) {
-    loadProducts();
-  }
   let sortUpPrice = (a, b) => b.price - a.price;
   let sortDownPrice = (a, b) => a.price - b.price;
 
@@ -25,7 +19,7 @@ export default function Home({ data }) {
     <MainLayout>
       <div>
         <Head>
-          <title>Электротехника для вас</title>
+          <title>Электротехника лучшая на рынке европы</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className={s.home}>
