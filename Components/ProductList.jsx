@@ -7,13 +7,13 @@ export default function ProductList({ arrayProduct }) {
   return (
     <div>
       {arrayProduct.map((d) => (
+          <div key= {d.id}className={s.wrapper}>
         <Link
           href={{
             pathname: "/catalog/[id]",
             query: { id: d.id },
           }}
         >
-          <div className={s.wrapper}>
             <div className={s.products}>
               <div>
                 <img src={d.image} />
@@ -23,8 +23,8 @@ export default function ProductList({ arrayProduct }) {
                 <span>{d.title}</span>
               </div>
             </div>
+            </Link>
           </div>
-        </Link>
       ))}
     </div>
   );
