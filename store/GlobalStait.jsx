@@ -1,8 +1,7 @@
 import React, { useContext, useReducer } from "react";
 
-const ADD_PRODUCTS = "ADD_PRODUCTS";
-const PRODUCT_BY_ID = "PRODUCT_BY_ID";
-const SORT_BY_PRICE = "SORT_BY_PRICE";
+
+
 
 const GlobalContext = React.createContext();
 
@@ -10,7 +9,7 @@ export const useProducts = () => {
   return useContext(GlobalContext);
 };
 
-const reducer = (state, action) => {
+const productsReducer = (state, action) => {
   switch (action.type) {
     case ADD_PRODUCTS:
       return { ...state, products: [...action.newProducts] };
@@ -29,24 +28,62 @@ const reducer = (state, action) => {
   }
 };
 
-export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, {
-    products: [],
-  });
+    const cartReducer = (state, action) => {
+      switch (action.type) {
+        case ADD_TO_CART:
+          debugger
+          return {
+            ...state, productsToCart:[state.productsToCart, action.pr]};
+        case REMOVE_FROM_CART:
+          return {
+            ...state,
+            productsToCart: state.productsToCart.map(product =>
+              product.id === action.id
+                ? {...product, selected: false, quantity: 1}
+                : product,
+            ),
+          };
+    case ADD_QUANTITY:
+      return {
+        ...state,
+        productsToCart: state.productsToCart.map(product =>
+          product.id === action.id
+            ? {...product, quantity: product.quantity + 1}
+            : product,
+        ),
+      };
+    case SUB_QUANTITY:
+      return {
+        ...state,
+        productsToCart: state.productsToCart.map(product =>
+          product.id === action.id
+            ? {
+                ...product,
+                quantity: product.quantity !== 1 ? product.quantity - 1 : 1,
+              }
+            : product,
+        ),
+      };
+      default:
+        return state;
+   }
+}
 
-  const addProducts = (newProducts) =>
-    dispatch({ type: ADD_PRODUCTS, newProducts });
-  const addProductById = (id) => dispatch({ type: PRODUCT_BY_ID, id });
-  const sortProductByPrice = (sortSelect) =>
-    dispatch({ type: SORT_BY_PRICE, sortSelect });
+
+export const GlobalProvider = ({ children }) => {
+
+
 
   return (
     <GlobalContext.Provider
       value={{
         products: state.products,
         addProducts,
-        addProductById,
+        changeProductById,
         sortProductByPrice,
+        addQuantity,
+        addToCart,
+        productsToCart: state.productsToCart,
       }}
     >
       {children}

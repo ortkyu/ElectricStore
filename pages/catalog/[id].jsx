@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import ProductCard from "../../Components/ProductCard";
-import { useProducts } from "../../store/GlobalStait";
+import { useSelector, useDispatch  } from 'react-redux'
 import MainLayout from "../../Components/Layout";
+import {changeProductById} from "../../store/Action"
+
 
 export default function Product() {
   const router = useRouter();
-  const { products, addProductById } = useProducts();
+  const dispatch = useDispatch()
+  const { products } = useSelector(state => state.productsArray)
 
   useEffect(() => {
-    addProductById(router.query.id);
+    debugger
+    dispatch(changeProductById(router.query.id))
   }, []);
-
+debugger
   return (
     <MainLayout>
       <Head>

@@ -1,13 +1,14 @@
 import '../styles/globals.css'
-import {GlobalProvider} from "../store/GlobalStait"
+import { Provider } from 'react-redux'
+import store from '../store'
 
 
 
 function MyApp({ Component, pageProps }) {
   return (
-  <GlobalProvider>
+  <Provider store={store}>
        <Component {...pageProps} />
-  </GlobalProvider>
+  </Provider>
   )
 }
 

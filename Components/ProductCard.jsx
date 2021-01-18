@@ -1,6 +1,7 @@
 import s from "./../styles/product.module.css";
 
 export default function ProductCard({ product }) {
+  debugger
   if (!product) return <div>No product</div>;
   return (
     <div className={s.container}>
