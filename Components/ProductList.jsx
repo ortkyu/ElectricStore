@@ -9,6 +9,8 @@ import {addToCart} from "../store/Action"
 
 export default function ProductList() {
  const { products } = useSelector(state => state.productsArray)
+ const { productsToCart } = useSelector(state => state.cart)
+
  const dispatch = useDispatch()
 
 let toCard = (d) => {
@@ -36,7 +38,10 @@ let toCard = (d) => {
               </div>
               </div>
               </Link>
+              { productsToCart.includes(d) ? <div style={{color:"green"}}>товар в корзине</div> 
+              :
               <div onClick={()=>toCard(d)}>в корзину</div>
+              }
             </div>
           </div>
       ))}

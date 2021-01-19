@@ -49,8 +49,4 @@ const initialState = {
 }
 
 
-  const removeFromCart = id => dispatch({type: REMOVE_FROM_CART, id})
-  const subtractQuantity = id => dispatch({type: SUB_QUANTITY, id})
-  const addQuantity = id =>  dispatch({type: ADD_QUANTITY, id})
-
   export default cartReducer

@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import s from "./../styles/productList.module.css";
 import { useSelector, useDispatch  } from 'react-redux'
-import {addToCart} from "../store/Action"
+import {addToCart, addQuantity} from "../store/Action"
 import MainLayout from "../Components/Layout";
 
 
@@ -26,7 +26,8 @@ const { productsToCart } = useSelector(state => state.cart)
               <div className={s.discription}>
                 <small>{d.price}</small>
                 <span>{d.title}</span>
-              </div>
+              </div> 
+              <div onClick={()=>dispatch(addQuantity(d.id))}>x{d.quantity}</div>
               </div>
           </div>
       ))}
