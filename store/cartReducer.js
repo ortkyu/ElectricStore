@@ -16,18 +16,15 @@ const initialState = {
       case REMOVE_FROM_CART:
         return {
           ...state,
-          productsToCart: state.productsToCart.map(product =>
-            product.id === action.id
-              ? {...product, selected: false, quantity: 1}
-              : product,
-          ),
+          productsToCart: state.productsToCart.filter(product => product.id !== action.id)
         };
+  
   case ADD_QUANTITY:
     return {
       ...state,
       productsToCart: state.productsToCart.map(product =>
         product.id === action.id
-          ? {...product, quantity: product.quantity + 1}
+          ? {...product, quantity: product.quantity !== 10 ? product.quantity + 1 : 10}
           : product,
       ),
     };

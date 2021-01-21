@@ -8,3 +8,4 @@ export default combineReducers({
     cart: cartReducer,
     productsArray: productsReducer
   })
+

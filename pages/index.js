@@ -5,17 +5,18 @@ import MainLayout from "../Components/Layout";
 import s from "../styles/main.module.css";
 import { useEffect } from "react";
 import {addProducts, sortProductByPrice} from "../store/Action"
+import { initializeStore } from '../store'
 
 
-export default function Home({ data }) {
+export default function Home() {
+  
   const dispatch = useDispatch()
 
-  //const {  addProducts, sortProductByPrice } = useProducts();
   const { products } = useSelector(state => state.productsArray)
-
-  useEffect(() => {
-    dispatch(addProducts(data))
-  }, [])
+debugger
+  // useEffect(() => {
+  //   dispatch(addProducts())
+  // }, [])
 
   let sortUpPrice = (a, b) => b.price - a.price;
   let sortDownPrice = (a, b) => a.price - b.price;
@@ -26,6 +27,7 @@ if (!products || products.length < 1) return (
   </MainLayout>
   )
   return (
+    <div className={''}>
     <MainLayout>
       <div>
         <Head>
@@ -43,20 +45,16 @@ if (!products || products.length < 1) return (
         <ProductList />
       </div>
     </MainLayout>
+    </div>
   );
 }
 
-export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:3000/rows.json");
-  const data = await res.json();
 
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: { data },
-  };
+export async function getServerSideProps() {
+  const reduxStore = initializeStore()
+  const { dispatch } = reduxStore
+   
+    await dispatch(addProducts())
+     
+  return { props: { initialReduxState: reduxStore.getState() } }
 }

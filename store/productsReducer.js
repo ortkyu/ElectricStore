@@ -6,11 +6,12 @@ export const SORT_BY_PRICE = "SORT_BY_PRICE";
 const initialState = {
     products: []
   }
+  debugger
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_PRODUCTS:
           debugger
-        return { ...state, products: [...action.newProducts] };
+        return { ...state, products: [...action.data] };
   
       case PRODUCT_BY_ID:
         return {
@@ -25,7 +26,6 @@ const productsReducer = (state = initialState, action) => {
         return state;
     }
   }
-
 
 
   export default productsReducer

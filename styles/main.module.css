@@ -1,5 +1,9 @@
+.wrap {
+    display: flex;
+}
+
 .home {
-    margin-left: 3rem;
+    margin-left: 10px;
 }
 
 .home button {
