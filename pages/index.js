@@ -5,7 +5,7 @@ import MainLayout from "../Components/Layout";
 import s from "../styles/main.module.css";
 import { useEffect } from "react";
 import {addProducts, sortProductByPrice} from "../store/Action"
-import { initializeStore } from '../store'
+//import { initializeStore } from '../store'
 
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
 
   const { products } = useSelector(state => state.productsArray)
 debugger
-  // useEffect(() => {
-  //   dispatch(addProducts())
-  // }, [])
+  useEffect(() => {
+    dispatch(addProducts())
+  }, [])
 
   let sortUpPrice = (a, b) => b.price - a.price;
   let sortDownPrice = (a, b) => a.price - b.price;
@@ -50,11 +50,11 @@ if (!products || products.length < 1) return (
 }
 
 
-export async function getServerSideProps() {
-  const reduxStore = initializeStore()
-  const { dispatch } = reduxStore
+// export async function getServerSideProps() {
+//   const reduxStore = initializeStore()
+//   const { dispatch } = reduxStore
    
-    await dispatch(addProducts())
+//     await dispatch(addProducts())
      
-  return { props: { initialReduxState: reduxStore.getState() } }
-}
+//   return { props: { initialReduxState: reduxStore.getState() } }
+// }

@@ -1,17 +1,22 @@
 import '../styles/globals.css'
 import { Provider } from 'react-redux'
-//import store from '../store'
 import { useStore } from '../store'
-
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/lib/integration/react';
 
 
 function MyApp({ Component, pageProps }) {
 
   const store = useStore(pageProps.initialReduxState)
+  const persistor = persistStore(store, {}, function () {
+    persistor.persist()
+  })
 
   return (
   <Provider store={store}>
+    <PersistGate loading={<div>loading</div>} persistor={persistor}>
        <Component {...pageProps} />
+       </PersistGate>
   </Provider>
   )
 }
