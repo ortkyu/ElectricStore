@@ -10,3 +10,9 @@
     margin-right: 10px;
     border: none;
 }
+
+.selectNumberPage {
+    width: 40px;
+    background-color: blue;
+    color: #fff;
+}
