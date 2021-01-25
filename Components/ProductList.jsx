@@ -13,11 +13,6 @@ export default function ProductList() {
 
  const dispatch = useDispatch()
 
-let toCard = (d) => {
-  dispatch(addToCart(d))
-} 
-
-  debugger
   return (
     <div>
       {products.map((d) => (
@@ -39,12 +34,12 @@ let toCard = (d) => {
               </div>
               </Link>
               <div className={s.toCard}>
-              { productsToCart.includes(d) ? 
+              { productsToCart.filter(p=> p.id===d.id).length > 0 ? 
               <Link href={"/cart"}>
               <div style={{color:"green"}}>товар в корзине</div>
               </Link> 
               :
-              <div onClick={()=>toCard(d)}>в корзину</div>
+              <div onClick={()=>dispatch(addToCart(d))}>в корзину</div>
               }
               </div>
             </div>

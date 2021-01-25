@@ -12,15 +12,21 @@ export default function CartList() {
 const { productsToCart } = useSelector(state => state.cart)
  const dispatch = useDispatch()
 
+ let total= productsToCart.reduce((acc, item) => acc += item.price * item.quantity, 0)
+
+
 if (productsToCart.length < 1) 
   return ( 
   <MainLayout>
     <div>в корзине нет товаров</div>
   </MainLayout>
 )
-  debugger
+  
   return (
     <MainLayout>
+      <div>
+      Общая сумма заказа:<b>{total}p</b>
+    </div>
     <div>
       {productsToCart.map((d) => (
           <div  key= {d.id}className={s.wrapper}>

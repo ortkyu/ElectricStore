@@ -10,7 +10,6 @@ const initialState = {
   const cartReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_TO_CART:
-        debugger
         return {
           ...state, productsToCart:[...state.productsToCart, action.pr]};
       case REMOVE_FROM_CART:

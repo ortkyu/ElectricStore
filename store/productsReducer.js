@@ -15,12 +15,11 @@ const initialState = {
     totalProductCount: 0,
     currentPage: 1
   }
-  debugger
+  
 
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_PRODUCTS:
-          debugger
         return { ...state, products: [...action.data] };
   
         case ADD_PRODUCTS_COUNT:
@@ -32,7 +31,6 @@ const productsReducer = (state = initialState, action) => {
         return { ...state, totalProductCount: counter-1 };
 
         case SET_CURRENT_PAGE:
-          debugger
         return { ...state, currentPage: action.currentPage };
 
       case PRODUCT_BY_ID:

@@ -19,19 +19,27 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 // async function moreArticles() {
 // let articleRef = await firebase.database().ref('articles').orderByChild('id').startAt(startId).limitToFirst(3)
 // let articleRef = await firebase.database().ref('articles').orderByChild('id').endAt(startId).limitToLast(3)
+//let sort = "https://electroproduct-f9df8-default-rtdb.firebaseio.com/.json?orderBy=%22vendor%22&startAt=%22switch%22&endAt=%22switch%22"
+//let filFech = `https://electroproduct-f9df8-default-rtdb.firebaseio.com/.json?orderBy="$key"&startAt="4"&limitToFirst=3`
 
 
-
-
-
-let filFech = `https://electroproduct-f9df8-default-rtdb.firebaseio.com/.json?orderBy="$key"&startAt="4"&limitToFirst=3`
 
 let baseUrl = "https://electroproduct-f9df8-default-rtdb.firebaseio.com/.json"
+
 export const addProducts = (startId=0) => (dispatch) => (
-    fetch(`https://electroproduct-f9df8-default-rtdb.firebaseio.com/.json?orderBy="$key"&startAt="${startId}"&limitToFirst=3`)
+    fetch(`${baseUrl}?orderBy="$key"&startAt="${startId}"&limitToFirst=3`)
     .then( res => res.json())
-    .then( data => dispatch({type: ADD_PRODUCTS, data: Object.values(data)}))
+    .then( data => dispatch({type: ADD_PRODUCTS, data: Object.values(data).filter(d=>d)}))
     )
+
+    export const addSortProducts = (startName) => (dispatch) => (
+        // fetch(`${baseUrl}?shallow=true&orderBy="vendor"&startAt="${startName}"&endAt="${startName}`)
+        // .then( res => res.json())
+        // .then( data => dispatch({type: ADD_PRODUCTS_COUNT, data})),
+        fetch(`${baseUrl}?orderBy="vendor"&startAt="${startName}"&endAt="${startName}"&limitToFirst=3`)
+        .then( res => res.json())
+        .then( data => dispatch({type: ADD_PRODUCTS, data: Object.values(data).filter(d=>d)}))
+        )
 
     export const addCountProduct = () => (dispatch) => (
         fetch(`${baseUrl}?shallow=true`)

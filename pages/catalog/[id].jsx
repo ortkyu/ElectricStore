@@ -13,10 +13,9 @@ export default function Product() {
   const { products } = useSelector(state => state.productsArray)
 
   useEffect(() => {
-    debugger
     dispatch(changeProductById(router.query.id))
   }, []);
-debugger
+
   return (
     <MainLayout>
       <Head>
