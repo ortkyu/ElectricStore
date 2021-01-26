@@ -13,11 +13,16 @@ export default function Home() {
   
   const dispatch = useDispatch()
 
+  let minSearchPrice = 0
+  let maxSearchPrice = 1000000
+
   const { pageSize, currentPage, searchQuery } = useSelector(state => state.productsArray)
   const  productsAll  = useSelector(
     state => state.productsArray.products.filter(
-    p => p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
+    p => p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 &&
+    p.price >= minSearchPrice & p.price <= maxSearchPrice
   ))
+
 
 
   useEffect(() => {

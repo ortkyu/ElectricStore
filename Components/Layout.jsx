@@ -11,11 +11,11 @@ import {  useState, useEffect } from "react";
 export default function MainLayout({ children, title }) {
   const router = useRouter();
 
-let changeCategory = router.query.category
+   let changeCategory = router.query.category
 
   let dispatch = useDispatch()
   const { productsToCart, searchQuery } = useSelector(state => state.cart)
-let productCount = productsToCart.length
+  let productCount = productsToCart.length
 
 
 let [style, setStyle] = useState(false);
@@ -28,6 +28,12 @@ let toggleStyle = () => setStyle(!style)
       </Head>
       <div>
       <div className={s.layout}>
+      <div onClick={toggleStyle} className={s.burger}>
+        <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+        <title>Menu</title>
+        <path d="M5.333 22.667h21.333v-2.667h-21.333v2.667zM5.333 17.333h21.333v-2.667h-21.333v2.667zM5.333 9.333v2.667h21.333v-2.667h-21.333z"></path>
+        </svg>
+        </div>
         <Link href={"/"}>
           <a>
             <h1>ELECTRO</h1>
@@ -52,12 +58,8 @@ let toggleStyle = () => setStyle(!style)
        </div>
        </Link>
       </div>
-      <div onClick={toggleStyle} className={s.burger}>
-        burg
-      </div>
       <div className={s.main}>
-       <div className={style ? s.zInd : s.closeNav}>
-        <div className={s.nav}>
+        <div className={style ? s.closeNav : s.nav}>
           <Link 
            href={{
             pathname: "/[category]",
@@ -77,7 +79,6 @@ let toggleStyle = () => setStyle(!style)
           }}>
           <div className={changeCategory=="tire" && s.changeNavItem}>Шина</div>
           </Link>
-        </div>
         </div>
         <main>{children}</main>
       </div>

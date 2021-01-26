@@ -35,24 +35,8 @@
    height: 80vh;
   }
 
-
-
   .burger {
     display: none;
-}
-
-.zInd {
-  z-index: 1;
-}
-
-  @media all and (max-width: 500px) {
-    .closeNav {
-      display: none;
-    }
-    .burger {
-        display: flex;
-        margin: 0px 20px;
-    }
 }
 
   .nav div {
@@ -66,6 +50,7 @@
 
   .main {
     display: flex;
+    
    }
 
    .countCart {
@@ -75,12 +60,46 @@
      background-color: rgb(93, 223, 81);
      width: 20px;
      border-radius: 50%;
-    color: #fff;
-    position: relative;
-    margin-left: 50px;
-    margin-bottom: -10px;
+      color: #fff;
+      position: relative;
+      margin-left: 50px;
+      margin-bottom: -10px;
    }
 
 .changeNavItem {
   background-color: rgb(212, 203, 203);
+}
+
+@media all and (max-width: 500px) {
+  .nav {
+    position: absolute;
+    background-color: dimgrey;
+    width: 200px;
+   }
+  .closeNav {
+    display: none;
+  }
+  .burger {
+      display: flex;
+      margin-left: 5px;
+      margin-right: 10px;
+
+  }
+  .layout {
+  padding-left: 2%;
+  padding-right: 2%;
+  }
+  .layout svg {
+    width: 34px;
+    height: 34px;
+  }
+  .layout h1 {
+    font-size: 19px;
+  }
+  .layout form {
+    padding-left: 5%;
+  }
+  .countCart {
+   margin-left: 35px;
+  }
 }
