@@ -1,10 +1,11 @@
 import Head from "next/head";
 import ProductList from "../Components/ProductList";
+import Paginator from "../Components/Paginator";
 import { useSelector, useDispatch  } from 'react-redux'
 import MainLayout from "../Components/Layout";
 import s from "../styles/main.module.css";
 import {  useState, useEffect } from "react";
-import {addProducts, addCountProduct, sortProductByPrice, setCurrentPage} from "../store/Action"
+import {addProducts, addCountProduct, sortProductByPrice, setCurrentPage, addQuery, sortProductByName} from "../store/Action"
 import { initializeStore } from '../store'
 
 
@@ -12,52 +13,31 @@ export default function Home() {
   
   const dispatch = useDispatch()
 
-  const { products, totalProductCount, pageSize, currentPage } = useSelector(state => state.productsArray)
-  useEffect(() => {
-    let initStartId = (currentPage-1) * 3
+  const { pageSize, currentPage, searchQuery } = useSelector(state => state.productsArray)
+  const  productsAll  = useSelector(
+    state => state.productsArray.products.filter(
+    p => p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0
+  ))
 
-    dispatch(addProducts(initStartId)),
-    dispatch(addCountProduct())
+
+  useEffect(() => {
+    dispatch(addProducts())
   }, [])
 
   let sortUpPrice = (a, b) => b.price - a.price;
   let sortDownPrice = (a, b) => a.price - b.price;
 
-  let pagesCount = Math.ceil(totalProductCount / pageSize);
-  let portionSize = 3
-  let portionCount = Math.ceil(pagesCount / portionSize);
-  let [portionNumber, setPortionNumber] = useState(1);
-  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-  let rightPortionPageNumber = portionNumber * portionSize;
+  let startNum = (currentPage-1) * pageSize
+  let endNum = startNum + pageSize
+  let totalProductCount = productsAll.length
+  let products = productsAll.slice(startNum, endNum)
 
 
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-      pages.push(i);
-  }
-
-
-   let onPageChanged = (p) => {
   
-   let startId = (p-1) * 3
-    dispatch(setCurrentPage(p)),
-    dispatch(addProducts(startId))
-    console.log(startId);
-
-}
-if (!products || products.length < 1) return (
-<MainLayout>
-  <div>loading...</div>
-  </MainLayout>
-  )
   return (
     <div className={''}>
     <MainLayout>
       <div>
-        <Head>
-          <title>Электротехника лучшая на рынке европы</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
         <div className={s.home}>
           <button onClick={() => dispatch(sortProductByPrice(sortUpPrice))}>
             sortUP
@@ -66,24 +46,11 @@ if (!products || products.length < 1) return (
             sortDown
           </button>
         </div>
-        <span className={s.pagination}>
-          { portionNumber > 1 &&
-        <div onClick={() => { setPortionNumber(portionNumber - 1) }}>пред</div> }
-        <div>
-        {pages
-              .filter(p => p >= leftPortionPageNumber && p<=rightPortionPageNumber)
-              .map((p) => {
-                return <span  className={currentPage === p ? s.selectNumberPage : s.numberPage}
-                             key={p}
-                             onClick={(e) => {
-                              onPageChanged(p)
-                             }}>{p}</span>
-            })}
-          </div>
-{ portionCount > portionNumber &&
-            <div onClick={() => { setPortionNumber(portionNumber + 1) }}>след</div> }
-            </span>
-        <ProductList />
+        {!productsAll || productsAll.length < 1 ? <div>товаров нет</div> :
+          <span className={s.pagination}>
+             <Paginator totalProductCount={totalProductCount} setCurrentPage={setCurrentPage} pageSize={pageSize} currentPage={currentPage} productsAll={productsAll}/>
+          </span>}
+             <ProductList products={products}/>
       </div>
     </MainLayout>
     </div>

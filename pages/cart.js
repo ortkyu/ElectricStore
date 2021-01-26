@@ -5,6 +5,7 @@ import s from "./../styles/productList.module.css";
 import { useSelector, useDispatch  } from 'react-redux'
 import {addToCart, addQuantity, subQuantity, removeToCart} from "../store/Action"
 import MainLayout from "../Components/Layout";
+import { PersistGate } from 'redux-persist/lib/integration/react';
 
 
 
@@ -14,7 +15,7 @@ const { productsToCart } = useSelector(state => state.cart)
 
  let total= productsToCart.reduce((acc, item) => acc += item.price * item.quantity, 0)
 
-
+  
 if (productsToCart.length < 1) 
   return ( 
   <MainLayout>
@@ -25,12 +26,17 @@ if (productsToCart.length < 1)
   return (
     <MainLayout>
       <div>
-      Общая сумма заказа:<b>{total}p</b>
+      Общая сумма заказа: &nbsp;<b>{total}&nbsp;pублей</b>
     </div>
     <div>
       {productsToCart.map((d) => (
           <div  key= {d.id}className={s.wrapper}>
             <div className={s.products}>
+            <Link
+            href={{
+            pathname: "/catalog/[id]",
+            query: { id: d.id },
+          }}>
               <div className={s.productsInfo}>
                 <div>
                   <img src={d.image} />
@@ -40,6 +46,7 @@ if (productsToCart.length < 1)
                   <span>{d.title}</span>
                 </div>
               </div>
+              </Link>
               <div  className={s.toCard}> 
               <b onClick={()=>dispatch(removeToCart(d.id))}>x</b>
                 <div className={s.changeQuant}>

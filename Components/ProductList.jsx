@@ -7,8 +7,7 @@ import {addToCart} from "../store/Action"
 
 
 
-export default function ProductList() {
- const { products } = useSelector(state => state.productsArray)
+export default function ProductList({ products }) {
  const { productsToCart } = useSelector(state => state.cart)
 
  const dispatch = useDispatch()
@@ -34,13 +33,13 @@ export default function ProductList() {
               </div>
               </Link>
               <div className={s.toCard}>
-              { productsToCart.filter(p=> p.id===d.id).length > 0 ? 
-              <Link href={"/cart"}>
-              <div style={{color:"green"}}>товар в корзине</div>
-              </Link> 
-              :
-              <div onClick={()=>dispatch(addToCart(d))}>в корзину</div>
-              }
+                { productsToCart.filter(p=> p.id===d.id).length > 0 ? 
+                <Link href={"/cart"}>
+                <b style={{color:"green"}}>товар в корзине</b>
+                </Link> 
+                :
+                <div onClick={()=>dispatch(addToCart(d))}>в корзину</div>
+                }
               </div>
             </div>
           </div>

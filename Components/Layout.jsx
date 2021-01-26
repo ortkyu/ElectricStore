@@ -3,19 +3,28 @@ import Head from "next/head";
 import React from "react";
 import s from "./../styles/Layout.module.css";
 import { useSelector, useDispatch  } from 'react-redux'
-import {addSortProducts} from "../store/Action"
+import {addSortProducts, addQuery} from "../store/Action"
+import { useRouter } from "next/router";
+import {  useState, useEffect } from "react";
 
 
 export default function MainLayout({ children, title }) {
-  // const {productsToCart} = useProducts()
-  // console.log(productsToCart);
+  const router = useRouter();
+
+let changeCategory = router.query.category
+
   let dispatch = useDispatch()
-  const { productsToCart } = useSelector(state => state.cart)
+  const { productsToCart, searchQuery } = useSelector(state => state.cart)
 let productCount = productsToCart.length
+
+
+let [style, setStyle] = useState(false);
+let toggleStyle = () => setStyle(!style)
+
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>Электротехника лучшая на рынке европы</title>
       </Head>
       <div>
       <div className={s.layout}>
@@ -24,11 +33,13 @@ let productCount = productsToCart.length
             <h1>ELECTRO</h1>
           </a>
         </Link>
-        <Link href={"/about"}>
-          <a>
-            <h2>О компании</h2>
-          </a>
-        </Link>
+        <form>
+        <input
+        onChange={e => dispatch(addQuery( e.target.value))}
+        value={searchQuery}
+        placeholder="Введите запрос..."
+      />
+        </form>
         <Link href={"/cart"}>
         <div> 
           {productCount > 0 && <div className={s.countCart}>{productCount}</div>}
@@ -41,27 +52,32 @@ let productCount = productsToCart.length
        </div>
        </Link>
       </div>
+      <div onClick={toggleStyle} className={s.burger}>
+        burg
+      </div>
       <div className={s.main}>
+       <div className={style ? s.zInd : s.closeNav}>
         <div className={s.nav}>
           <Link 
            href={{
             pathname: "/[category]",
             query: { category: "switch"},
           }}>
-          <div >Выключатель</div>
+          <div className={changeCategory=="switch" && s.changeNavItem}>Выключатель</div>
           </Link>
           <Link href={{
             pathname: "/[category]",
             query: { category: "housing"},
           }}>
-          <div >Корпус</div>
+          <div className={changeCategory=="housing" && s.changeNavItem}>Корпус</div>
           </Link>
           <Link href={{
             pathname: "/[category]",
             query: { category: "tire"},
           }}>
-          <div >Шина</div>
+          <div className={changeCategory=="tire" && s.changeNavItem}>Шина</div>
           </Link>
+        </div>
         </div>
         <main>{children}</main>
       </div>

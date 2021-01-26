@@ -1,12 +1,12 @@
 .layout {
     font-weight: bold;
     height: 15vh;
-    background:rgb(0, 217, 255);
+    background:rgb(192, 12, 72);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 5%;
+    padding-right: 5%;
     margin-bottom: 1rem;
   }
 
@@ -15,13 +15,53 @@
     text-decoration: none;
   }
 
+  .layout form {
+    display: flex;
+    align-items: center;
+    width: 60vw;
+    height: 12vh;
+    padding-left: 1%;
+  }
+
+  .layout input {
+    background:rgb(235, 46, 109);
+    width: 70%;
+    height: 50%;
+    outline: none;
+  }
+
   .nav {
    width: 17%;
    height: 80vh;
   }
 
+
+
+  .burger {
+    display: none;
+}
+
+.zInd {
+  z-index: 1;
+}
+
+  @media all and (max-width: 500px) {
+    .closeNav {
+      display: none;
+    }
+    .burger {
+        display: flex;
+        margin: 0px 20px;
+    }
+}
+
   .nav div {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 7%;
     margin: 20px 10px;
+    padding-left: 10px;
    }
 
   .main {
@@ -31,7 +71,8 @@
    .countCart {
      display: flex;
      justify-content: center;
-     background-color: red;
+     align-items: center;
+     background-color: rgb(93, 223, 81);
      width: 20px;
      border-radius: 50%;
     color: #fff;
@@ -40,3 +81,6 @@
     margin-bottom: -10px;
    }
 
+.changeNavItem {
+  background-color: rgb(212, 203, 203);
+}
