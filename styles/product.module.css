@@ -41,16 +41,21 @@
     width: 70vw;
     height: 10vh;
     border-radius: 5px;
-    background-color: rgb(185, 185, 185);
+    background-color: rgb(233, 224, 224);
     margin: 7px 0px;
     padding: 10px;
 }
 
 
-@media all and (min-width: 900px) {
-    .content {
-        width: 900px;
+@media all and (max-width: 700px) {
+
+    .container  {
+        font-size: 13px;
     }
+    .container img {
+        width: 200px;
+    }
+    
 }
 
 .block {

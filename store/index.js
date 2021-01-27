@@ -13,7 +13,7 @@ let store
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['productsArray']
+  whietlist: ['cart']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

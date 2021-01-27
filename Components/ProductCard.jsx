@@ -4,33 +4,41 @@ import { addToCart } from "../store/Action"
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import {  useState, useEffect } from "react";
+import {Loader} from "../Components/Loader";
 
 
 
 
-export default function ProductCard({ product }) {
+export default function ProductCard( ) {
   const { productsToCart } = useSelector(state => state.cart)
   const router = useRouter();
 
   const dispatch = useDispatch()
+  const [comment, setComment] = useState()
+  const [product, setProduct] = useState()
 
-  //  const handleSubmit = (event) => {
-  //   alert(comment);
-  //   addComment(comment)
-  //   PostComment(comment)
-  //   event.preventDefault();
-  // }
+useEffect(()=>{
+  fetch(`https://electroproduct-f9df8-default-rtdb.firebaseio.com/${router.query.id}.json`)
+  .then(res => res.json())
+  .then(data => setProduct(data))
+},[router.query.id])
+  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const onSubmit = data => {
+    let {exampleRequired} = data
+    postComment(exampleRequired)
+    setComment(exampleRequired)
+    reset()
+  }
 
-  // let commentText = articles && articles.comments && Object.entries(articles.comments).map(c => c[1])
+ let postComment = (exampleRequired) => {
+   fetch(`https://electroproduct-f9df8-default-rtdb.firebaseio.com/${router.query.id}/comments.json`, {
+  method: 'POST',
+  body: JSON.stringify(exampleRequired),
+})}
 
-  const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = data => fetch(`https://electroproduct-f9df8-default-rtdb.firebaseio.com/${router.query.id}/comments.json`, {
-    method: 'POST',
-    body: JSON.stringify(data.exampleRequired),
-  });
- 
 
-  if (!product) return <div>No product</div>;
+  if (!product) return <Loader/>
   return (
     <div className={s.container}>
     <div className={s.discription}>
@@ -55,13 +63,12 @@ export default function ProductCard({ product }) {
       <div>
       {errors.exampleRequired && <p>минимум 3 символа</p>}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input name="exampleRequired" ref={register({ minLength: 3 })} />
+          <input name="exampleRequired" ref={register({ required: true, minLength: 3 })} />
           <button type="submit" >send</button>
         </form>
       </div>
-      <div className={s.comment}>{''}</div>
-        {Object.values(product.comments).reverse().map(c => <div className={s.comment}>{c}</div>)}
-
+      {comment && <div className={s.comment}>{comment}</div>}
+        {product.comments && Object.values(product.comments).reverse().map(c => <div className={s.comment}>{c}</div>)}
     </div>
   )
 }

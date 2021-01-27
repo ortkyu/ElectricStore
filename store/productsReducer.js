@@ -26,12 +26,6 @@ const productsReducer = (state = initialState, action) => {
         case SET_CURRENT_PAGE:
         return { ...state, currentPage: action.currentPage };
 
-      case PRODUCT_BY_ID:
-        return {
-          ...state,
-          products: state.products.filter((product) => product.id == action.id),
-        };
-
       case SORT_BY_PRICE:
         return { ...state, products: state.products.sort(action.sortSelect) };
   

@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { useStore } from '../store'
 import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/lib/integration/react';
+import {Loader} from "../Components/Loader";
 
 
 function MyApp({ Component, pageProps }) {
@@ -14,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
   <Provider store={store}>
-        <PersistGate loading={<div>loading</div>} persistor={persistor}>
+        <PersistGate loading={<div><Loader/></div>} persistor={persistor}>
           <Component {...pageProps} />
        </PersistGate>
   </Provider>

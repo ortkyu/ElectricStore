@@ -67,7 +67,7 @@
     border-radius: 5px;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
     .wrapper {
         align-content: center;
     }
@@ -77,9 +77,34 @@
         flex-wrap: wrap;
         align-items: center;
         width: 100vw;
-        margin: 10px 10px;
+        margin: 10px 5px;
+    }
+    .products img {
+        padding-right: 0px;
+        padding-left: 0px;
+        width: auto;
+        height: 150px;
     }
     .toCard {
         margin-left: auto;  
+    }
+    .changeQuant {
+        margin-left: 10px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width:  60px;
+        border: 1px solid rgb(114, 113, 113);
+        border-radius: 5px;
+    }
+    .toCard {
+        display: flex;
+        flex-direction: row;
+        margin-right: 40px;    
+    }
+    .toCard b {
+        position: absolute;
+        margin-left: 80px;
+        z-index: 1;  
     }
 }

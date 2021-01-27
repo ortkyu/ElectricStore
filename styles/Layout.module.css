@@ -48,6 +48,8 @@
     padding-left: 10px;
    }
 
+   
+
   .main {
     display: flex;
     
@@ -70,11 +72,25 @@
   background-color: rgb(212, 203, 203);
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
   .nav {
+    display: none;
+   }
+  .navMob {
+    height: 80vh;
     position: absolute;
     background-color: dimgrey;
     width: 200px;
+   }
+
+   .navMob div {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 7%;
+    margin: 20px 10px;
+    padding-left: 10px;
+    
    }
   .closeNav {
     display: none;
