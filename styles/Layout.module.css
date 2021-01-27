@@ -1,72 +1,69 @@
 .layout {
-    font-weight: bold;
-    height: 15vh;
-    background:rgb(192, 12, 72);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-bottom: 1rem;
-  }
-
-.layout a {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  .layout form {
-    display: flex;
-    align-items: center;
-    width: 60vw;
-    height: 12vh;
-    padding-left: 1%;
-  }
-
-  .layout input {
-    background:rgb(235, 46, 109);
-    width: 70%;
-    height: 50%;
-    outline: none;
-  }
-
-  .nav {
-   width: 17%;
-   height: 80vh;
-  }
-
-  .burger {
-    display: none;
+  font-weight: bold;
+  height: 15vh;
+  background: rgb(192, 12, 72);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 1rem;
 }
 
-  .nav div {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    height: 7%;
-    margin: 20px 10px;
-    padding-left: 10px;
-   }
+.layout a {
+  color: #fff;
+  text-decoration: none;
+}
 
-   
+.layout form {
+  display: flex;
+  align-items: center;
+  width: 60vw;
+  height: 12vh;
+  padding-left: 1%;
+}
 
-  .main {
-    display: flex;
-    
-   }
+.layout input {
+  background: rgb(235, 46, 109);
+  width: 70%;
+  height: 50%;
+  outline: none;
+}
 
-   .countCart {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: rgb(93, 223, 81);
-     width: 20px;
-     border-radius: 50%;
-      color: #fff;
-      position: relative;
-      margin-left: 50px;
-      margin-bottom: -10px;
-   }
+.nav {
+  width: 17%;
+  height: 80vh;
+}
+
+.burger {
+  display: none;
+}
+
+.nav div {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  height: 7%;
+  margin: 20px 10px;
+  padding-left: 10px;
+}
+
+.main {
+  display: flex;
+}
+
+.countCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(93, 223, 81);
+  width: 20px;
+  border-radius: 50%;
+  color: #fff;
+  position: relative;
+  margin-left: 50px;
+  margin-bottom: -10px;
+}
 
 .changeNavItem {
   background-color: rgb(212, 203, 203);
@@ -75,35 +72,33 @@
 @media all and (max-width: 600px) {
   .nav {
     display: none;
-   }
+  }
   .navMob {
     height: 80vh;
     position: absolute;
     background-color: dimgrey;
     width: 200px;
-   }
+  }
 
-   .navMob div {
+  .navMob div {
     display: flex;
     align-items: center;
     width: 90%;
     height: 7%;
     margin: 20px 10px;
     padding-left: 10px;
-    
-   }
+  }
   .closeNav {
     display: none;
   }
   .burger {
-      display: flex;
-      margin-left: 5px;
-      margin-right: 10px;
-
+    display: flex;
+    margin-left: 5px;
+    margin-right: 10px;
   }
   .layout {
-  padding-left: 2%;
-  padding-right: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
   }
   .layout svg {
     width: 34px;
@@ -116,6 +111,6 @@
     padding-left: 5%;
   }
   .countCart {
-   margin-left: 35px;
+    margin-left: 35px;
   }
 }

@@ -1,0 +1,3 @@
+export const ADD_PRODUCTS = "ADD_PRODUCTS";
+export const SORT_BY_PRICE = "SORT_BY_PRICE";
+export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';

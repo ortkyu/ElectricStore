@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import s from "./../styles/Layout.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addSortProducts, addQuery } from "../store/Action";
+import { addMinPrice, addMaxPrice, addQuery } from "../store/filter/Action";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -13,7 +13,11 @@ export default function MainLayout({ children, title }) {
   let changeCategory = router.query.category;
 
   let dispatch = useDispatch();
-  const { productsToCart, searchQuery } = useSelector((state) => state.cart);
+  const { productsToCart } = useSelector((state) => state.cart);
+  const { searchQuery, minSearchPrice, maxSearchPrice } = useSelector(
+    (state) => state.filter
+  );
+
   let productCount = productsToCart.length;
 
   let [style, setStyle] = useState(false);
@@ -75,6 +79,18 @@ export default function MainLayout({ children, title }) {
         </div>
         <div className={s.main}>
           <div className={style ? s.navMob : s.nav}>
+            <form>
+              <input
+                onChange={(e) => dispatch(addMinPrice(e.target.value))}
+                value={minSearchPrice}
+                placeholder="0"
+              />
+              <input
+                onChange={(e) => dispatch(addMaxPrice(e.target.value))}
+                value={maxSearchPrice}
+                placeholder="0"
+              />
+            </form>
             <Link
               href={{
                 pathname: "/[category]",

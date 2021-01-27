@@ -1,77 +1,55 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
-    .container img {
-        margin-right: 20px;
-        width: 300px;
-        height: auto;
-    }
-    
-    .container input {
-        margin: 20px 0px;
-        width: 70%;
-        height: 10vh;
-    }
+.container img {
+  margin-right: 20px;
+  width: 300px;
+  height: auto;
+}
 
-    .container button {
-        width: 70px;
-        height: 10vh;
-    }
+.container input {
+  margin: 20px 0px;
+  width: 70%;
+  height: 10vh;
+}
 
-    .container p {
-       color: rgb(209, 16, 16);
-    }
+.container button {
+  width: 70px;
+  height: 10vh;
+}
+
+.container p {
+  color: rgb(209, 16, 16);
+}
 
 .discription {
-    display: flex;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    padding-right: 20px;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  padding-right: 20px;
 }
 
 .inCard {
-    margin-top: 10%;
-    margin-right: 30px;
-
+  margin-top: 10%;
+  margin-right: 30px;
 }
 
 .comment {
-    width: 70vw;
-    height: 10vh;
-    border-radius: 5px;
-    background-color: rgb(233, 224, 224);
-    margin: 7px 0px;
-    padding: 10px;
+  width: 70vw;
+  height: 10vh;
+  border-radius: 5px;
+  background-color: rgb(233, 224, 224);
+  margin: 7px 0px;
+  padding: 10px;
 }
-
 
 @media all and (max-width: 700px) {
-
-    .container  {
-        font-size: 13px;
-    }
-    .container img {
-        width: 200px;
-    }
-    
+  .container {
+    font-size: 13px;
+  }
+  .container img {
+    width: 200px;
+  }
 }
-
-.block {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-
-}
-
-.content {
-    display: flex;
-    margin: 20px;
-}
-
-.content div {
-    margin-bottom: 10px;
-}
-
-
-
-

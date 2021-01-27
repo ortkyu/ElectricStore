@@ -8,31 +8,27 @@ import s from "../styles/main.module.css";
 import { useState, useEffect } from "react";
 import {
   addProducts,
-  addCountProduct,
   sortProductByPrice,
   setCurrentPage,
-  addQuery,
-  sortProductByName,
-} from "../store/Action";
+} from "../store/products/Action";
 import { initializeStore } from "../store";
 
 export default function Home() {
   const dispatch = useDispatch();
 
-  let minSearchPrice = 0;
-  let maxSearchPrice = 1000000;
-  const { pageSize, currentPage, searchQuery } = useSelector(
-    (state) => state.productsArray
-  );
-  const productsAll = useSelector((state) =>
-    state.productsArray.products.filter(
-      (p) =>
-        p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 &&
-        (p.price >= minSearchPrice) & (p.price <= maxSearchPrice)
-    )
+  const { minSearchPrice, maxSearchPrice, searchQuery } = useSelector(
+    (state) => state.filter
   );
 
-  debugger;
+  const { pageSize, currentPage } = useSelector((state) => state.productsArray);
+
+  let productsEvery = useSelector((state) => state.productsArray.products);
+  let productsAll = productsEvery.filter(
+    (p) =>
+      p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 &&
+      (p.price >= minSearchPrice) & (p.price <= maxSearchPrice)
+  );
+
   let sortUpPrice = (a, b) => b.price - a.price;
   let sortDownPrice = (a, b) => a.price - b.price;
 
@@ -54,10 +50,9 @@ export default function Home() {
               по убыванию
             </button>
           </div>
+          {!productsEvery ?? <Loader />}
           {!productsAll || productsAll.length < 1 ? (
-            <div>
-              <Loader />
-            </div>
+            <div>товаров не найдено</div>
           ) : (
             <span className={s.pagination}>
               <Paginator

@@ -1,110 +1,107 @@
 .wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .products {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 75vw;
-    margin: 20px 0px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    border-radius: 5px;
-    height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75vw;
+  margin: 20px 0px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  height: 200px;
 }
 
-
 .productsInfo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .discription {
-    display: flex;
-    flex-direction: column;
-    padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
 }
 
 .products img {
-    padding-right: 10px;
-    padding-left: 20px;
-    width: auto;
-    height: 150px;
+  padding-right: 10px;
+  padding-left: 20px;
+  width: auto;
+  height: 150px;
 }
 
-
-
 .but {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .but button {
-    width: 100px;
-    height: 30px;
+  width: 100px;
+  height: 30px;
 }
 
 .toCard {
-    display: flex;
-    flex-direction: column;
-    margin-right: 50px;    
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
 }
 
 .toCard b {
-    margin-left: 7px;
-    margin-bottom: 0px;    
+  margin-left: 7px;
+  margin-bottom: 0px;
 }
 
 .changeQuant {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:  25px;
-    border: 1px solid rgb(114, 113, 113);
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25px;
+  border: 1px solid rgb(114, 113, 113);
+  border-radius: 5px;
 }
 
 @media all and (max-width: 600px) {
-    .wrapper {
-        align-content: center;
-    }
-    .products {
-        justify-content: center;
-        padding-left: 3px;
-        flex-wrap: wrap;
-        align-items: center;
-        width: 100vw;
-        margin: 10px 5px;
-    }
-    .products img {
-        padding-right: 0px;
-        padding-left: 0px;
-        width: auto;
-        height: 150px;
-    }
-    .toCard {
-        margin-left: auto;  
-    }
-    .changeQuant {
-        margin-left: 10px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        width:  60px;
-        border: 1px solid rgb(114, 113, 113);
-        border-radius: 5px;
-    }
-    .toCard {
-        display: flex;
-        flex-direction: row;
-        margin-right: 40px;    
-    }
-    .toCard b {
-        position: absolute;
-        margin-left: 80px;
-        z-index: 1;  
-    }
+  .wrapper {
+    align-content: center;
+  }
+  .products {
+    justify-content: center;
+    padding-left: 3px;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100vw;
+    margin: 10px 5px;
+  }
+  .products img {
+    padding-right: 0px;
+    padding-left: 0px;
+    width: auto;
+    height: 150px;
+  }
+  .toCard {
+    margin-left: auto;
+  }
+  .changeQuant {
+    margin-left: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 60px;
+    border: 1px solid rgb(114, 113, 113);
+    border-radius: 5px;
+  }
+  .toCard {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+  }
+  .toCard b {
+    position: absolute;
+    margin-left: 80px;
+    z-index: 1;
+  }
 }
