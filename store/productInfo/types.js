@@ -1,0 +1,1 @@
+export const ADD_PRODUCT_INFO = "ADD_PRODUCT_INFO";

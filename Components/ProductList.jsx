@@ -26,7 +26,7 @@ export default function ProductList({ products }) {
                   <img src={d.image} />
                 </div>
                 <div className={s.discription}>
-                  <small>{d.price}руб</small>
+                  <small>{d.price}&nbsp;руб</small>
                   <span>{d.title}</span>
                 </div>
               </div>
@@ -34,7 +34,7 @@ export default function ProductList({ products }) {
             <div className={s.toCard}>
               {productsToCart.filter((p) => p.id === d.id).length > 0 ? (
                 <Link href={"/cart"}>
-                  <b style={{ color: "green" }}>товар в корзине</b>
+                  <strong style={{ color: "green" }}>товар в корзине</strong>
                 </Link>
               ) : (
                 <div onClick={() => dispatch(addToCart(d))}>в корзину</div>

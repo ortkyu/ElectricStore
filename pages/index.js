@@ -1,17 +1,16 @@
-import Head from "next/head";
 import ProductList from "../Components/ProductList";
 import Paginator from "../Components/Paginator";
 import { Loader } from "../Components/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import MainLayout from "../Components/Layout";
 import s from "../styles/main.module.css";
-import { useState, useEffect } from "react";
 import {
   addProducts,
   sortProductByPrice,
   setCurrentPage,
-} from "../store/products/Action";
+} from "../store/products/action";
 import { initializeStore } from "../store";
+
 
 export default function Home() {
   const dispatch = useDispatch();

@@ -12,10 +12,12 @@ const filterReducer = (state = initialState, action) => {
       return { ...state, searchQuery: action.text };
 
     case ADD_MIN_SEARCH_PRICE:
-      return { ...state, minSearchPrice: action.num };
+      return { ...state, minSearchPrice: action.minNum };
 
     case ADD_MAX_SEARCH_PRICE:
-      return { ...state, maxSearchPrice: action.num };
+      return action.maxNum > 0
+        ? { ...state, maxSearchPrice: +action.maxNum }
+        : { ...state, maxSearchPrice: 100000 };
 
     default:
       return state;

@@ -23,8 +23,11 @@
 .discription {
   display: flex;
   flex-direction: column;
-  padding-left: 8px;
+  margin-left: 8px;
+
 }
+
+
 
 .products img {
   padding-right: 10px;
@@ -52,7 +55,6 @@
 
 .toCard b {
   margin-left: 7px;
-  margin-bottom: 0px;
 }
 
 .changeQuant {

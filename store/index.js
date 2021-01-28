@@ -11,7 +11,7 @@ let store;
 const persistConfig = {
   key: "root",
   storage,
-  whietlist: ["cart"],
+  whietlist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

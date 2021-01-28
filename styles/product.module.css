@@ -10,9 +10,15 @@
   height: auto;
 }
 
-.container input {
+.container form {
   margin: 20px 0px;
-  width: 70%;
+  width:  70vw;
+  height: 10vh;
+  padding-left: 0px;
+}
+
+.container input {
+  width:  100%;
   height: 10vh;
 }
 

@@ -30,13 +30,13 @@
   outline: none;
 }
 
+.burger {
+  display: none;
+}
+
 .nav {
   width: 17%;
   height: 80vh;
-}
-
-.burger {
-  display: none;
 }
 
 .nav div {
@@ -52,6 +52,24 @@
   display: flex;
 }
 
+.main span {
+  padding-left: 7%;
+}
+
+.main form {
+  display: flex;
+  align-items: center;
+  width: 12vw;
+  height: 10vh;
+  padding-left: 5%;
+}
+
+.main input {
+  width: 70%;
+  height: 50%;
+  outline: none;
+  margin: 0px 5px;
+}
 .countCart {
   display: flex;
   justify-content: center;
@@ -69,11 +87,17 @@
   background-color: rgb(212, 203, 203);
 }
 
+.navMob {
+  display: none;
+}
+
 @media all and (max-width: 600px) {
   .nav {
     display: none;
   }
   .navMob {
+    display: flex;
+    flex-direction: column;
     height: 80vh;
     position: absolute;
     background-color: dimgrey;
@@ -112,5 +136,8 @@
   }
   .countCart {
     margin-left: 35px;
+  }
+  .main form {
+    width: 42vw;
   }
 }

@@ -1,7 +1,6 @@
 import s from "../styles/main.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import ProductList from "../Components/ProductList";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 export default function Paginator({
   pageSize,
