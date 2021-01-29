@@ -8,9 +8,8 @@ import {
   addProducts,
   sortProductByPrice,
   setCurrentPage,
-} from "../store/products/action";
+} from "../store/products/Action";
 import { initializeStore } from "../store";
-import { useState } from "react";
 
 
 export default function Home() {

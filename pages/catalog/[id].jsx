@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import MainLayout from "../../Components/Layout";
 import { useForm } from "react-hook-form";
 import { baseUrl } from "../../api";
-import { addProductInfo } from "../../store/productInfo/action";
+import { addProductInfo } from "../../store/productInfo/Action";
 import { initializeStore } from "../../store";
 import s from "../../styles/product.module.css";
 

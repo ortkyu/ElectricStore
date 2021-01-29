@@ -5,7 +5,7 @@ import {
   addQuantity,
   subQuantity,
   removeToCart,
-} from "../store/cartProducts/action";
+} from "../store/cartProducts/Action";
 import MainLayout from "../Components/Layout";
 import { useEffect } from "react";
 
