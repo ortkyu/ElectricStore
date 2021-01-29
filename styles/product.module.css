@@ -18,7 +18,7 @@
 }
 
 .container input {
-  width:  100%;
+  width:  80%;
   height: 10vh;
 }
 
@@ -63,5 +63,8 @@
   .comment {
     width: 90vw;
     margin-left: 5px;
+  }
+  .container input {
+    width: 70%;
   }
 }

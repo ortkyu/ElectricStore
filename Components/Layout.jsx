@@ -88,6 +88,7 @@ export default function MainLayout({ children, title }) {
         <div className={s.main}>
           <div className={style ? s.navMob : s.nav}>
             <span>Цена:</span>
+            <span className={s.mainInput}>
             <form>
               <input
                 onChange={(e) => dispatch(addMinPrice(e.target.value))}
@@ -98,6 +99,7 @@ export default function MainLayout({ children, title }) {
                 placeholder="0"
               />
             </form>
+            </span>
             <Link
               href={{
                 pathname: "/[category]",

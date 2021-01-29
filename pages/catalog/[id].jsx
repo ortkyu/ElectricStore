@@ -48,7 +48,6 @@ export default function Product() {
         <ProductCard product={product} />
       </div>
       <div className={s.container}>
-        <div>
           {errors.exampleRequired && <p>минимум 3 символа</p>}
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
@@ -57,7 +56,6 @@ export default function Product() {
             />
             <button type="submit">send</button>
           </form>
-        </div>
         {comment && <div className={s.comment}>{comment}</div>}
         {product.comments &&
           Object.values(product.comments)
