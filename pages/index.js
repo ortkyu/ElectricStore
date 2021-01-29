@@ -10,6 +10,8 @@ import {
   setCurrentPage,
 } from "../store/products/action";
 import { initializeStore } from "../store";
+import { useState } from "react";
+
 
 export default function Home() {
   const dispatch = useDispatch();
