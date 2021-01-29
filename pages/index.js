@@ -11,7 +11,6 @@ import {
 } from "../store/products/action";
 import { initializeStore } from "../store";
 
-
 export default function Home() {
   const dispatch = useDispatch();
 

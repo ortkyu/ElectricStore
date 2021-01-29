@@ -1,14 +1,23 @@
-import styles from "../styles/Home.module.css";
-import Head from "next/head";
 import Link from "next/link";
 import s from "./../styles/productList.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../store/cartProducts/Action";
+import { addToCart } from "../store/cartProducts/action";
+import { useEffect } from "react";
 
 export default function ProductList({ products }) {
   const { productsToCart } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+
+  let sendTocart = (d) => {
+    dispatch(addToCart(d));
+  };
+
+  useEffect(() => {
+    if (productsToCart.length > 0) {
+      localStorage.setItem("cartList", JSON.stringify(productsToCart));
+    }
+  });
 
   return (
     <div>
@@ -37,7 +46,7 @@ export default function ProductList({ products }) {
                   <strong style={{ color: "green" }}>товар в корзине</strong>
                 </Link>
               ) : (
-                <div onClick={() => dispatch(addToCart(d))}>в корзину</div>
+                <div onClick={() => sendTocart(d)}>в корзину</div>
               )}
             </div>
           </div>

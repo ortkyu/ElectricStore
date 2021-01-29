@@ -14,6 +14,13 @@ export default function Product() {
   const router = useRouter();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productInfo);
+  const { productsToCart } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (productsToCart.length > 0) {
+      localStorage.setItem("cartList", JSON.stringify(productsToCart));
+    }
+  });
 
   const [comment, setComment] = useState();
 

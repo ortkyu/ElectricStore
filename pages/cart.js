@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import s from "./../styles/productList.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,8 +5,9 @@ import {
   addQuantity,
   subQuantity,
   removeToCart,
-} from "../store/cartProducts/Action";
+} from "../store/cartProducts/action";
 import MainLayout from "../Components/Layout";
+import { useEffect } from "react";
 
 export default function CartList() {
   const { productsToCart } = useSelector((state) => state.cart);
@@ -17,6 +17,14 @@ export default function CartList() {
     (acc, item) => (acc += item.price * item.quantity),
     0
   );
+  useEffect(() => {
+    localStorage.setItem("cartList", JSON.stringify(productsToCart));
+  });
+
+  let remouveFromCard = (id) => {
+    localStorage.clear();
+    dispatch(removeToCart(id));
+  };
 
   if (productsToCart.length < 1)
     return (
@@ -51,7 +59,7 @@ export default function CartList() {
                 </div>
               </Link>
               <div className={s.toCard}>
-                <b onClick={() => dispatch(removeToCart(d.id))}>x</b>
+                <b onClick={() => remouveFromCard(d.id)}>x</b>
                 <div className={s.changeQuant}>
                   <div onClick={() => dispatch(addQuantity(d.id))}>+</div>
                   <div>{d.quantity}</div>

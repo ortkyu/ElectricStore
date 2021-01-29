@@ -3,24 +3,28 @@ import Head from "next/head";
 import React from "react";
 import s from "./../styles/Layout.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addMinPrice, addMaxPrice, addQuery } from "../store/filter/Action";
+import { addMinPrice, addMaxPrice, addQuery } from "../store/filter/action";
 import { useRouter } from "next/router";
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
+import { addToCartStorage } from "../store/cartProducts/action";
 
 export default function MainLayout({ children, title }) {
   const router = useRouter();
 
   let changeCategory = router.query.category;
 
+  useEffect(() => {
+    const data = localStorage.getItem("cartList");
+    if (data) {
+      dispatch(addToCartStorage(JSON.parse(data)));
+    }
+  }, [router]);
 
   let dispatch = useDispatch();
   const { productsToCart } = useSelector((state) => state.cart);
   const { searchQuery, minSearchPrice, maxSearchPrice } = useSelector(
     (state) => state.filter
   );
-;
   let productCount = productsToCart.length;
 
   let [style, setStyle] = useState(false);
@@ -82,8 +86,8 @@ export default function MainLayout({ children, title }) {
           </Link>
         </div>
         <div className={s.main}>
-        <div className={style ? s.navMob : s.nav}>
-            <span>Цена:</span> 
+          <div className={style ? s.navMob : s.nav}>
+            <span>Цена:</span>
             <form>
               <input
                 onChange={(e) => dispatch(addMinPrice(e.target.value))}
@@ -100,7 +104,11 @@ export default function MainLayout({ children, title }) {
                 query: { category: "switch" },
               }}
             >
-              <div className={changeCategory === "switch" ? s.changeNavItem : undefined}>
+              <div
+                className={
+                  changeCategory === "switch" ? s.changeNavItem : undefined
+                }
+              >
                 Выключатель
               </div>
             </Link>
@@ -110,7 +118,11 @@ export default function MainLayout({ children, title }) {
                 query: { category: "housing" },
               }}
             >
-              <div className={changeCategory === "housing" ? s.changeNavItem : undefined}>
+              <div
+                className={
+                  changeCategory === "housing" ? s.changeNavItem : undefined
+                }
+              >
                 Корпус
               </div>
             </Link>
@@ -120,7 +132,11 @@ export default function MainLayout({ children, title }) {
                 query: { category: "tire" },
               }}
             >
-              <div className={changeCategory === "tire"  ? s.changeNavItem : undefined}>
+              <div
+                className={
+                  changeCategory === "tire" ? s.changeNavItem : undefined
+                }
+              >
                 Шина
               </div>
             </Link>

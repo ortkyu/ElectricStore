@@ -24,10 +24,12 @@
   display: flex;
   flex-direction: column;
   margin-left: 8px;
-
 }
 
+.discription small {
+  margin-left: 16px;
 
+}
 
 .products img {
   padding-right: 10px;

@@ -6,13 +6,11 @@ import { useRouter } from "next/router";
 export default function CategoryProduct() {
   const router = useRouter();
 
-  const productsAll = useSelector((state) => state.productsArray.products)
+  const productsAll = useSelector((state) => state.productsArray.products);
 
   const productsSortCategory = useSelector((state) =>
-  productsAll.filter(
-      (p) => p.vendor == router.query.category
-    )
-  )
+    productsAll.filter((p) => p.vendor == router.query.category)
+  );
 
   return (
     <>

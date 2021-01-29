@@ -1,27 +1,12 @@
 import { useMemo } from "react";
 import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 import reducers from "./reducers";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
 let store;
 
-const persistConfig = {
-  key: "root",
-  storage,
-  whietlist: ['cart'],
-};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
-
 function initStore(initialState) {
-  return createStore(
-    persistedReducer,
-    initialState,
-    applyMiddleware(thunkMiddleware)
-  );
+  return createStore(reducers, initialState, applyMiddleware(thunkMiddleware));
 }
 
 export const initializeStore = (preloadedState) => {

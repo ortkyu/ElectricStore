@@ -3,6 +3,7 @@ import {
   SUB_QUANTITY,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  ADD_TO_CART_STORAGE
 } from "./types";
 
 const initialState = {
@@ -16,6 +17,12 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         productsToCart: [...state.productsToCart, action.pr],
       };
+
+      case ADD_TO_CART_STORAGE:
+        return {
+          ...state,
+          productsToCart: [...action.pr]
+        };
 
     case REMOVE_FROM_CART:
       return {
