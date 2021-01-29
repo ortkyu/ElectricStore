@@ -41,12 +41,12 @@ export default function Home() {
       <MainLayout>
         <div>
           <div className={s.home}>
-            Сортировка по цене: &nbsp;
+            <span>Сортировка по цене: &nbsp;</span>
             <button onClick={() => dispatch(sortProductByPrice(sortUpPrice))}>
-              по возрастанию
+            &uarr;
             </button>
             <button onClick={() => dispatch(sortProductByPrice(sortDownPrice))}>
-              по убыванию
+            &darr;
             </button>
           </div>
           {!productsEvery ?? <Loader />}

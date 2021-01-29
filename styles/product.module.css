@@ -40,6 +40,7 @@
 .inCard {
   margin-top: 10%;
   margin-right: 30px;
+  margin-bottom: 10px;
 }
 
 .comment {
@@ -53,9 +54,14 @@
 
 @media all and (max-width: 700px) {
   .container {
-    font-size: 13px;
+    font-size: 11px;
   }
   .container img {
-    width: 200px;
+    width: auto;
+    height: 150px;
+  }
+  .comment {
+    width: 90vw;
+    margin-left: 5px;
   }
 }

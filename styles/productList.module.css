@@ -105,7 +105,10 @@
   }
   .toCard b {
     position: absolute;
-    margin-left: 80px;
+    margin-left: 90px;
     z-index: 1;
+  }
+  .totalPrice {
+    margin-left: 10px;
   }
 }

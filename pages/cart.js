@@ -35,8 +35,8 @@ export default function CartList() {
 
   return (
     <MainLayout>
-      <div>
-        Общая сумма заказа: &nbsp;<b>{total}&nbsp;pублей</b>
+      <div className={s.totalPrice}>
+      Общая сумма заказа: &nbsp;<b>{total}&nbsp;pублей</b>
       </div>
       <div>
         {productsToCart.map((d) => (
