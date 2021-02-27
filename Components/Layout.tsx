@@ -8,7 +8,11 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { addToCartStorage } from "../store/cartProducts/Action";
 
-export default function MainLayout({ children, title }) {
+
+
+export default function MainLayout({ children }: {
+  children: any;
+}): JSX.Element {
   const router = useRouter();
 
   let changeCategory = router.query.category;
@@ -64,7 +68,7 @@ export default function MainLayout({ children, title }) {
             />
           </form>
           <Link href={"/cart"}>
-            <div>
+            <div className={s.cart}>
               {productCount > 0 && (
                 <div className={s.countCart}>{productCount}</div>
               )}
@@ -91,11 +95,11 @@ export default function MainLayout({ children, title }) {
             <span className={s.mainInput}>
             <form>
               <input
-                onChange={(e) => dispatch(addMinPrice(e.target.value))}
+                onChange={(e) => dispatch(addMinPrice(+e.target.value))}
                 placeholder="0"
               />
               <input
-                onChange={(e) => dispatch(addMaxPrice(e.target.value))}
+                onChange={(e) => dispatch(addMaxPrice(+e.target.value))}
                 placeholder="0"
               />
             </form>

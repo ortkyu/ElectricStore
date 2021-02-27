@@ -8,6 +8,9 @@ import {
 } from "../store/cartProducts/Action";
 import MainLayout from "../Components/Layout";
 import { useEffect } from "react";
+import Head from "next/head";
+
+
 
 export default function CartList() {
   const { productsToCart } = useSelector((state) => state.cart);

@@ -1,3 +1,0 @@
-export const ADD_MIN_SEARCH_PRICE = 'ADD_MIN_SEARCH_PRICE';
-export const ADD_MAX_SEARCH_PRICE = 'ADD_MAX_SEARCH_PRICE';
-export const ADD_QUARY = 'ADD_QUARY';

@@ -1,3 +1,4 @@
+import React from 'react';
 import ProductList from "../Components/ProductList";
 import Paginator from "../Components/Paginator";
 import { Loader } from "../Components/Loader";
@@ -10,34 +11,39 @@ import {
   setCurrentPage,
 } from "../store/products/Action";
 import { initializeStore } from "../store";
+import { GetServerSideProps } from 'next'
+import { RootState } from '../store/reducers';
+import Head from "next/head";
+import {Product} from "../store/products/types"
 
 
-export default function Home() {
+export default function Home () {
   const dispatch = useDispatch();
 
   const { minSearchPrice, maxSearchPrice, searchQuery } = useSelector(
-    (state) => state.filter
+    (state: RootState) => state.filter
   );
 
-  const { pageSize, currentPage } = useSelector((state) => state.productsArray);
+  const { pageSize, currentPage } = useSelector((state: RootState) => state.productsArray);
 
-  let productsEvery = useSelector((state) => state.productsArray.products);
-  let productsAll = productsEvery.filter(
-    (p) =>
-      p.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 &&
-      (p.price >= minSearchPrice) & (p.price <= maxSearchPrice)
+  let productsEvery = useSelector((state: RootState) => state.productsArray.products);
+  let productsAll: Product[] = productsEvery.filter(
+    (p: Product) =>
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      (p.price >= minSearchPrice) && (p.price <= maxSearchPrice)
   );
 
-  let sortUpPrice = (a, b) => b.price - a.price;
-  let sortDownPrice = (a, b) => a.price - b.price;
+  let sortUpPrice: number = (a, b) => b.price - a.price;
+  let sortDownPrice: number = (a, b) => a.price - b.price;
 
-  let startNum = (currentPage - 1) * pageSize;
-  let endNum = startNum + pageSize;
-  let totalProductCount = productsAll.length;
-  let products = productsAll.slice(startNum, endNum);
+  let startNum: number = (currentPage - 1) * pageSize;
+  let endNum: number = startNum + pageSize;
+  let totalProductCount: number = productsAll.length;
+  let products: Product[] = productsAll.slice(startNum, endNum);
 
+  
   return (
-    <div className={""}>
+    <div>
       <MainLayout>
         <div>
           <div className={s.home}>
@@ -59,7 +65,6 @@ export default function Home() {
                 setCurrentPage={setCurrentPage}
                 pageSize={pageSize}
                 currentPage={currentPage}
-                productsAll={productsAll}
               />
             </span>
           )}

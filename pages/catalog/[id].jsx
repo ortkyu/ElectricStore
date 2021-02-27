@@ -9,6 +9,12 @@ import { baseUrl } from "../../api";
 import { addProductInfo } from "../../store/productInfo/action";
 import { initializeStore } from "../../store";
 import s from "../../styles/product.module.css";
+import { GetServerSideProps } from 'next'
+
+
+
+
+
 
 export default function Product() {
   const router = useRouter();

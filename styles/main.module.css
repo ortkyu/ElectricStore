@@ -9,6 +9,12 @@
 .home button {
     margin-right: 10px;
     border: none;
+    cursor: pointer;
+}
+
+.home span {
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 .selectNumberPage {
@@ -26,6 +32,7 @@
     width: 20px;
     height: 20px;
     color: blue;
+    cursor: pointer;
 }
 
 .numberPage:hover {
@@ -34,12 +41,13 @@
 
 .pagination {
     display: flex;
-    margin: 5px;
 }
 
 .pagination div, .pagination span {
     display: flex;
     margin: 0px 5px;
+    cursor: pointer;
+        
 }
 
 @media all and (max-width: 700px) {

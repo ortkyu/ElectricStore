@@ -1,13 +1,13 @@
-import { ADD_PRODUCTS, SET_CURRENT_PAGE, SORT_BY_PRICE } from "./types";
+import { ADD_PRODUCTS, SET_CURRENT_PAGE, SORT_BY_PRICE, ProductState, ProductsActionTypes } from "./types";
 
-const initialState = {
+const initialState: ProductState = {
   products: [],
   pageSize: 3,
   currentPage: 1,
   searchQuery: "",
 };
 
-const productsReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action: ProductsActionTypes): ProductState  => {
   switch (action.type) {
     case ADD_PRODUCTS:
       return { ...state, products: [...action.data] };

@@ -1,12 +1,12 @@
-import { ADD_MIN_SEARCH_PRICE, ADD_MAX_SEARCH_PRICE, ADD_QUARY } from "./types";
+import { ADD_MIN_SEARCH_PRICE, ADD_MAX_SEARCH_PRICE, ADD_QUARY, FiltertState, FilterActionTypes } from "./types";
 
-const initialState = {
+const initialState: FiltertState = {
   minSearchPrice: 0,
   maxSearchPrice: 1000000,
   searchQuery: "",
 };
 
-const filterReducer = (state = initialState, action) => {
+const filterReducer = (state = initialState, action: FilterActionTypes): FiltertState => {
   switch (action.type) {
     case ADD_QUARY:
       return { ...state, searchQuery: action.text };

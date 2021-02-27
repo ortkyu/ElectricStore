@@ -5,10 +5,14 @@ import productsReducer from  './products/productsReducer'
 import productInfoReducer from "./productInfo/productInfoReducer"
 
 
-export default combineReducers({
+ const rootReducer = combineReducers({
     cart: cartReducer,
     productsArray: productsReducer,
     filter: filterReducer,
     productInfo: productInfoReducer,
   })
 
+
+  export type RootState = ReturnType<typeof rootReducer>
+
+  export default rootReducer

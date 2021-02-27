@@ -3,25 +3,27 @@ import {
   SUB_QUANTITY,
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  ADD_TO_CART_STORAGE
+  ADD_TO_CART_STORAGE,
+  ProductToCardState,
+  ProductsCardActionTypes
 } from "./types";
 
-const initialState = {
+const initialState: ProductToCardState = {
   productsToCart: [],
 };
 
-const cartReducer = (state = initialState, action) => {
+const cartReducer = (state = initialState, action: ProductsCardActionTypes): ProductToCardState => {
   switch (action.type) {
     case ADD_TO_CART:
       return {
         ...state,
-        productsToCart: [...state.productsToCart, action.pr],
+        productsToCart: [...state.productsToCart, action.product],
       };
 
       case ADD_TO_CART_STORAGE:
         return {
           ...state,
-          productsToCart: [...action.pr]
+          productsToCart: [...action.product]
         };
 
     case REMOVE_FROM_CART:
