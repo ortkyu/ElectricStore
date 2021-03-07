@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "store/products/action4.ts"  ],
+, "store/products/action.ts"  ],
   "exclude": [
     "node_modules"
   ]

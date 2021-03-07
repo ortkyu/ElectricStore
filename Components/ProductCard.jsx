@@ -1,6 +1,6 @@
 import s from "./../styles/product.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../store/cartProducts/action1";
+import { addToCart } from "../store/cartProducts/action";
 import Link from "next/link";
 import { Loader } from "../Components/Loader";
 

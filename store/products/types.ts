@@ -1,3 +1,5 @@
+import { AnyARecord } from "dns";
+
 export const ADD_PRODUCTS = "ADD_PRODUCTS";
 export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
@@ -22,7 +24,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface AddProductsAction {
     type: typeof ADD_PRODUCTS
-    payload: Product //data
+    payload: Product 
   }
   interface SetCurrentPageAction {
     type: typeof SET_CURRENT_PAGE
@@ -31,7 +33,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface SortByPriceAction {
     type: typeof SORT_BY_PRICE,
-    sortSelect: () => number
+    sortSelect: () => any
   }
   
  

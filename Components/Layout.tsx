@@ -3,10 +3,10 @@ import Head from "next/head";
 import React from "react";
 import s from "./../styles/Layout.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addMinPrice, addMaxPrice, addQuery } from "../store/filter/action2";
+import { addMinPrice, addMaxPrice, addQuery } from "../store/filter/action";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { addToCartStorage } from "../store/cartProducts/action1";
+import { addToCartStorage } from "../store/cartProducts/action";
 
 
 

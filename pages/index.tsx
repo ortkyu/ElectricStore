@@ -9,7 +9,7 @@ import {
   addProducts,
   sortProductByPrice,
   setCurrentPage,
-} from "../store/products/action4";
+} from "../store/products/action";
 import { initializeStore } from "../store";
 import { GetServerSideProps } from 'next'
 import { RootState } from '../store/reducers';
@@ -35,8 +35,8 @@ export default function Home () {
       (p.price >= minSearchPrice) && (p.price <= maxSearchPrice)
   );
 
-  let sortUpPrice: number = (a, b) => b.price - a.price;
-  let sortDownPrice: number = (a, b) => a.price - b.price;
+  let sortUpPrice: any = (a, b) => b.price - a.price;
+  let sortDownPrice: any = (a, b) => a.price - b.price;
 
   let startNum: number = (currentPage - 1) * pageSize;
   let endNum: number = startNum + pageSize;

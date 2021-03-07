@@ -16,7 +16,7 @@ export const addProducts = (): ThunkAction<void, RootState, unknown, Action<stri
       })
     );
 
-export const sortProductByPrice = (sortSelect: (a:any,b:any) => number): ProductsActionTypes => ({
+export const sortProductByPrice = (sortSelect: (a:any,b:any) => any): ProductsActionTypes => ({
   type: SORT_BY_PRICE,
   sortSelect,
 });

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import s from "./../styles/productList.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../store/cartProducts/action1";
+import { addToCart } from "../store/cartProducts/action";
 import { useEffect } from "react";
 
 export default function ProductList({ products }) {
