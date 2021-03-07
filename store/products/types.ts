@@ -22,7 +22,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface AddProductsAction {
     type: typeof ADD_PRODUCTS
-    payload: Product
+    payload: Product //data
   }
   interface SetCurrentPageAction {
     type: typeof SET_CURRENT_PAGE

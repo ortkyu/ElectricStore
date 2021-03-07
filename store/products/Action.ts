@@ -1,4 +1,4 @@
-import { ADD_PRODUCTS, SORT_BY_PRICE, SET_CURRENT_PAGE, ProductsActoinTypes } from "./types";
+import { ADD_PRODUCTS, SORT_BY_PRICE, SET_CURRENT_PAGE, ProductsActionTypes } from "./types";
 import { baseUrl } from "../../api";
 import { ThunkAction } from 'redux-thunk'
 import { Action } from 'redux'
@@ -6,7 +6,7 @@ import { RootState } from '../reducers'
 
 
 
-export const addProducts = (startId = 0): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch) =>
+export const addProducts = (): ThunkAction<void, RootState, unknown, Action<string>> => (dispatch) =>
   fetch(`${baseUrl}/.json`)
     .then((res) => res.json())
     .then((data) =>

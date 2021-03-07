@@ -9,7 +9,7 @@ import {
   addProducts,
   sortProductByPrice,
   setCurrentPage,
-} from "../store/products/Action";
+} from "../store/products/action";
 import { initializeStore } from "../store";
 import { GetServerSideProps } from 'next'
 import { RootState } from '../store/reducers';
@@ -25,6 +25,8 @@ export default function Home () {
   );
 
   const { pageSize, currentPage } = useSelector((state: RootState) => state.productsArray);
+
+  const prod = useSelector((state: RootState) => state.productsArray.products);
 
   let productsEvery = useSelector((state: RootState) => state.productsArray.products);
   let productsAll: Product[] = productsEvery.filter(
