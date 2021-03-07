@@ -9,7 +9,7 @@ import {
   addProducts,
   sortProductByPrice,
   setCurrentPage,
-} from "../store/products/action";
+} from "../store/products/action4";
 import { initializeStore } from "../store";
 import { GetServerSideProps } from 'next'
 import { RootState } from '../store/reducers';
