@@ -12,7 +12,7 @@ export const addProducts = (): ThunkAction<void, RootState, unknown, Action<stri
     .then((data) =>
       dispatch({
         type: ADD_PRODUCTS,
-        data: Object.values(data).filter((d: object) => d),
+        payload: Object.values(data).filter((d: object) => d),
       })
     );
 

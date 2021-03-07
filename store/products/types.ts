@@ -24,7 +24,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface AddProductsAction {
     type: typeof ADD_PRODUCTS
-    payload: Product 
+    payload: Product[]
   }
   interface SetCurrentPageAction {
     type: typeof SET_CURRENT_PAGE
@@ -33,7 +33,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface SortByPriceAction {
     type: typeof SORT_BY_PRICE,
-    sortSelect: () => any
+    sortSelect: (a:any,b:any) => any
   }
   
  

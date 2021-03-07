@@ -9,6 +9,6 @@ export const addProductInfo = (id): ThunkAction<void, RootState, unknown, Action
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        return dispatch({ type: ADD_PRODUCT_INFO, data: data });
+        return dispatch({ type: ADD_PRODUCT_INFO, payload: data });
       }
     });

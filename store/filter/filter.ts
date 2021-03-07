@@ -9,14 +9,14 @@ const initialState: FiltertState = {
 const filterReducer = (state = initialState, action: FilterActionTypes): FiltertState => {
   switch (action.type) {
     case ADD_QUARY:
-      return { ...state, searchQuery: action.text };
+      return { ...state, searchQuery: action.payload };
 
     case ADD_MIN_SEARCH_PRICE:
-      return { ...state, minSearchPrice: action.minNum };
+      return { ...state, minSearchPrice: action.payload };
 
     case ADD_MAX_SEARCH_PRICE:
-      return action.maxNum > 0
-        ? { ...state, maxSearchPrice: +action.maxNum }
+      return action.payload > 0
+        ? { ...state, maxSearchPrice: +action.payload }
         : { ...state, maxSearchPrice: 100000 };
 
     default:

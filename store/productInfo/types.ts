@@ -13,11 +13,7 @@ export interface Product {
   }
 
 export interface ProductInfoState {
-    id: string
-    title: string
-    vendor: string
-    price: number
-    quantity: number
+  product: Product | null
   }
 
 

@@ -10,7 +10,7 @@ const initialState: ProductState = {
 const productsReducer = (state = initialState, action: ProductsActionTypes): ProductState  => {
   switch (action.type) {
     case ADD_PRODUCTS:
-      return { ...state, products: [...action.data] };
+      return { ...state, products: [...action.payload] };
 
     case SET_CURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
