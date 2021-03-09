@@ -31,7 +31,7 @@ export default function MainLayout({ children }: {
   );
 
   
-  let productCount = productsToCart.length > 1 && productsToCart.reduce((acc, item) => (item.quantity + acc),0)
+  let productCount = productsToCart.length > 0 && productsToCart.reduce((acc, item) => (item.quantity + acc),0)
   
   let [style, setStyle] = useState(false);
   let toggleStyle = () => setStyle(!style);
@@ -41,7 +41,7 @@ export default function MainLayout({ children }: {
       <Head>
         <title>Электротехника лучшая на рынке европы</title>
       </Head>
-      сайт разарбатывается...
+      сайт разрабатывается...
       <div>
         <div className={s.layout}>
           <div onClick={toggleStyle} className={s.burger}>
