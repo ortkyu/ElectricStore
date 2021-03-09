@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## О проекте:  
 
-## Getting Started
+Этот проект является магазином электротоваров. В нем предусмотрены различные фильтры(по цене, по категории товара и поиск по названию товара), возможность добавления товаров в корзину и подсчет общей стоимости заказа. Так же, перейдя на страницу товара можно оставить комментарий к выбранному товару.  
+Проект взаимодействует с сервером используя REST API.  
 
-First, run the development server:
+## В проекте использованы следующие технологии:  
+Type script  
+Next.js(React hooks)  
+Redux(Redux hooks, Redux Thunk)  
+React-hook-form  
+В качестве бэкэнда использован Firebase через REST API  
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Для запуска проекта выполнить следующие команды:  
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Для клонирование репозитория: git clone https://github.com/ortkyu/newsSite.git  
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Инициализация проекты:  
 
-## Learn More
+npm install 
+или 
+yarn install  
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Запуск проекта:  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+npm run dev 
+или 
+yarn dev  
 
-## Deploy on Vercel
+Приложение запускается на http://localhost:3000  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+В браузере переходим по адресу:  http://localhost:3000  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+![alt text](public/Screenshot_11.png )
+![alt text](public/Screenshot_22.png )
+![alt text](public/Screenshot_33.png )
+
+
