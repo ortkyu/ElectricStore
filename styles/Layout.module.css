@@ -30,6 +30,10 @@
   outline: none;
 }
 
+.input:hover, .input:focus {
+  background: white;
+}
+
 .burger {
   display: none;
   cursor: pointer;
@@ -49,6 +53,10 @@
   padding-left: 10px;
   cursor: pointer;
 
+}
+
+.nav div:hover {
+  background-color: dimgrey;
 }
 
 .main {
@@ -119,6 +127,9 @@
     height: 7%;
     margin: 20px 10px;
     padding-left: 10px;
+  }
+  .navMob div:hover {
+    background-color: dimgrey;
   }
   .closeNav {
     display: none;

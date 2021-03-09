@@ -29,8 +29,10 @@ export default function MainLayout({ children }: {
   const { searchQuery, minSearchPrice, maxSearchPrice } = useSelector(
     (state) => state.filter
   );
-  let productCount = productsToCart.length;
 
+  
+  let productCount = productsToCart.length > 1 && productsToCart.reduce((acc, item) => (item.quantity + acc),0)
+  
   let [style, setStyle] = useState(false);
   let toggleStyle = () => setStyle(!style);
 
@@ -62,6 +64,7 @@ export default function MainLayout({ children }: {
           </Link>
           <form>
             <input
+            className={s.input}
               onChange={(e) => dispatch(addQuery(e.target.value))}
               value={searchQuery}
               placeholder="Введите запрос..."
@@ -112,7 +115,7 @@ export default function MainLayout({ children }: {
             >
               <div
                 className={
-                  changeCategory === "switch" ? s.changeNavItem : undefined
+                  changeCategory === "switch" ? s.changeNavItem : ''
                 }
               >
                 Выключатель
@@ -126,7 +129,7 @@ export default function MainLayout({ children }: {
             >
               <div
                 className={
-                  changeCategory === "housing" ? s.changeNavItem : undefined
+                  changeCategory === "housing" ? s.changeNavItem : ''
                 }
               >
                 Корпус
@@ -140,7 +143,7 @@ export default function MainLayout({ children }: {
             >
               <div
                 className={
-                  changeCategory === "tire" ? s.changeNavItem : undefined
+                  changeCategory === "tire" ? s.changeNavItem : ''
                 }
               >
                 Шина

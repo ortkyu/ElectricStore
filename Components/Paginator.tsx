@@ -31,6 +31,7 @@ export default function Paginator({
     pages.push(i);
   }
 
+
   return (
     <div className={s.pagin}>
       <div>

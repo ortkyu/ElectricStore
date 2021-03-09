@@ -1,12 +1,18 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import MainLayout from "../Components/Layout";
 import ProductList from "../Components/ProductList";
 import { useRouter } from "next/router";
 import Head from "next/head";
-
+import {addProducts} from "../store/products/action";
+import { useEffect } from "react";
 
 export default function CategoryProduct() {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(addProducts())
+  },[router.query.category])
 
   const productsAll = useSelector((state) => state.productsArray.products);
 
@@ -18,7 +24,7 @@ export default function CategoryProduct() {
     <>
       <MainLayout>
       <Head>
-        <title>jjj</title>
+        <title></title>
       </Head>
         <ProductList products={productsSortCategory} />
       </MainLayout>
