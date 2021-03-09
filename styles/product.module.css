@@ -19,12 +19,12 @@
 
 .container input {
   width:  80%;
-  height: 10vh;
+  height: 70%;
 }
 
 .container button {
   width: 70px;
-  height: 10vh;
+  height: 70%;
 }
 
 .container p {
@@ -66,9 +66,18 @@
     width: 90vw;
     margin-left: 10px;
   }
+ 
+  .container form {
+    width:  90%;
+    height: 40px;  
+  }
   .container input {
     width: 70%;
+    height: 100%;  
     margin-left: 10px;
-
+  }
+  .container button {
+    width: 20%;
+    height: 40px;  
   }
 }
