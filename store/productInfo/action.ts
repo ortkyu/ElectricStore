@@ -11,4 +11,10 @@ export const addProductInfo = (id): ThunkAction<void, RootState, unknown, Action
       if (data) {
         return dispatch({ type: ADD_PRODUCT_INFO, payload: data });
       }
-    });
+    })
+    .catch(err=> {
+      console.log("fetchErr",err),  
+    dispatch({
+      type: ADD_PRODUCT_INFO,
+      payload: null
+    })})

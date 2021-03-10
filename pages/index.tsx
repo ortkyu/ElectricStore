@@ -83,5 +83,5 @@ export async function getServerSideProps() {
 
   await dispatch(addProducts());
 
-  return { props: { initialReduxState: reduxStore.getState() } };
+  return { props: { initialReduxState: reduxStore.getState() }};
 }

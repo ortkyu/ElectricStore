@@ -79,6 +79,5 @@ export async function getServerSideProps(router) {
   let id = router.query.id;
 
   await dispatch(addProductInfo(id));
-
-  return { props: { initialReduxState: reduxStore.getState() } };
+  return { props: { initialReduxState: reduxStore.getState()}};
 }

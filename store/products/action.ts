@@ -14,7 +14,13 @@ export const addProducts = (): ThunkAction<void, RootState, unknown, Action<stri
         type: ADD_PRODUCTS,
         payload: Object.values(data).filter((d: object) => d),
       })
-    );
+    )
+    .catch(err=> {
+      console.log("fetchErr",err),  
+    dispatch({
+      type: ADD_PRODUCTS,
+      payload: []
+    })})
 
 export const sortProductByPrice = (sortSelect: (a:any,b:any) => any): ProductsActionTypes => ({
   type: SORT_BY_PRICE,
