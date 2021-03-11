@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import {addProducts} from "../store/products/action";
 import { useEffect } from "react";
+import { RootState } from '../store/reducers';
+
 
 export default function CategoryProduct() {
   const router = useRouter();
@@ -14,9 +16,9 @@ export default function CategoryProduct() {
     dispatch(addProducts())
   },[router.query.category])
 
-  const productsAll = useSelector((state) => state.productsArray.products);
+  const productsAll = useSelector((state: RootState) => state.productsArray.products);
 
-  const productsSortCategory = useSelector((state) =>
+  const productsSortCategory = useSelector((state: RootState) =>
     productsAll.filter((p) => p.vendor == router.query.category)
   );
 

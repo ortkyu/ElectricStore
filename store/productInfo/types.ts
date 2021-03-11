@@ -2,6 +2,9 @@ export const ADD_PRODUCT_INFO = "ADD_PRODUCT_INFO";
 
 
 
+export interface Comment {
+  [prop:string]: string
+}
 
 export interface Product {
     id: string
@@ -9,7 +12,7 @@ export interface Product {
     vendor: string
     price: number
     quantity: number
-
+   comments?: Comment[]
   }
 
 export interface ProductInfoState {

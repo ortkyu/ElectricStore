@@ -9,14 +9,16 @@ import {
 import MainLayout from "../Components/Layout";
 import { useEffect } from "react";
 import Head from "next/head";
+import { RootState } from '../store/reducers';
 
 
 
 export default function CartList() {
-  const { productsToCart } = useSelector((state) => state.cart);
+
+  const { productsToCart } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
-  let total = productsToCart.reduce(
+  let total: number = productsToCart.reduce(
     (acc, item) => (acc += item.price * item.quantity),
     0
   );

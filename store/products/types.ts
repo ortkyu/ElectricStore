@@ -5,14 +5,16 @@ export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
 
-
+export interface Comment {
+  [prop:string]: string
+}
   export interface Product {
     id: string
     title: string
     vendor: string
     price: number
     quantity: number
-
+    comments?: Comment[]
   }
 
   export interface ProductState {
@@ -33,7 +35,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
   interface SortByPriceAction {
     type: typeof SORT_BY_PRICE,
-    sortSelect: (a:any,b:any) => any
+    sortSelect: (a: Product,b: Product) => number
   }
   
  

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import ProductCard from "../../Components/ProductCard";
@@ -10,17 +10,15 @@ import { addProductInfo } from "../../store/productInfo/action";
 import { initializeStore } from "../../store";
 import s from "../../styles/product.module.css";
 import { GetServerSideProps } from 'next'
-
-
-
+import { RootState } from '../../store/reducers';
 
 
 
 export default function Product() {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { product } = useSelector((state) => state.productInfo);
-  const { productsToCart } = useSelector((state) => state.cart);
+  const { product } = useSelector((state: RootState) => state.productInfo);
+  const { productsToCart } = useSelector((state: RootState) => state.cart);
 
   useEffect(() => {
     if (productsToCart.length > 0) {
@@ -28,20 +26,18 @@ export default function Product() {
     }
   });
 
-  const [comment, setComment] = useState();
-
   const { register, handleSubmit, watch, errors, reset } = useForm();
   const onSubmit = (data) => {
-    let { exampleRequired } = data;
-    postComment(exampleRequired);
-    setComment(exampleRequired);
+    let inputText: string  = data.commentText;
+    postComment(inputText);
+    dispatch(addProductInfo(router.query.id))
     reset();
   };
 
-  let postComment = (exampleRequired) => {
+  let postComment = (inputText: string) => {
     fetch(`${baseUrl}/${router.query.id}/comments.json`, {
       method: "POST",
-      body: JSON.stringify(exampleRequired),
+      body: JSON.stringify(inputText),
     });
   };
 
@@ -54,19 +50,18 @@ export default function Product() {
         <ProductCard product={product} />
       </div>
       <div className={s.container}>
-          {errors.exampleRequired && <p>минимум 3 символа</p>}
+          {errors.commentText && <p>минимум 3 символа</p>}
           <form onSubmit={handleSubmit(onSubmit)}>
             <input
-              name="exampleRequired"
+              name="commentText"
               ref={register({ required: true, minLength: 3 })}
             />
             <button type="submit">send</button>
           </form>
-        {comment && <div className={s.comment}>{comment}</div>}
         {product.comments &&
           Object.values(product.comments)
             .reverse()
-            .map((c) => <div className={s.comment}>{c}</div>)}
+            .map((c) => <div  className={s.comment}>{c}</div>)}
       </div>
     </MainLayout>
   );
